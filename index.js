@@ -18,7 +18,7 @@ const server = new ApolloServer({
 const MONGODB_URI =
   "mongodb+srv://admin:admin@cluster0.uah1y.mongodb.net/grape-vine?retryWrites=true&w=majority";
 
-server.listen().then(({ url }) => {
+server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
   console.log(`Server ready at ${url}`);
 
   mongoose
