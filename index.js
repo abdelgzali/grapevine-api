@@ -9,7 +9,9 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: {models},
-  cors: false
+  cors: {
+    origin: '*'
+  }
 });
 
 const MONGODB_URI =
