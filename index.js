@@ -10,8 +10,8 @@ const server = new ApolloServer({
   resolvers,
   context: {models},
   cors: {
-    origin: '*',
-    credentials: false
+    origin: 'https://blissful-swirles-888dfc.netlify.app/',
+    credentials: true
   }
 });
 
