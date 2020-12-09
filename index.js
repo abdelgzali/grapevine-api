@@ -8,7 +8,8 @@ const models = require("./models");
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: {models}
+  context: {models},
+  cors: false
 });
 
 const MONGODB_URI =
