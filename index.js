@@ -10,7 +10,8 @@ const server = new ApolloServer({
   resolvers,
   context: {models},
   cors: {
-    origin: '*'
+    origin: '*',
+    credentials: false
   }
 });
 
