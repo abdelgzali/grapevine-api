@@ -1,6 +1,10 @@
 const { gql } = require("apollo-server");
 
 module.exports = gql`
+  type Subscription {
+    newMessage: Message
+  }
+
   type Grape {
     name: String!
   }
@@ -16,15 +20,15 @@ module.exports = gql`
     messages: [Message!]
   }
 
-  input CreateGrapeInput{
+  input CreateGrapeInput {
     name: String!
   }
 
-  type DeletePayload{
+  type DeletePayload {
     id: ID!
   }
 
-  type Mutation{
+  type Mutation {
     createGrape(input: CreateGrapeInput!): Grape!
     deleteGrape(id: ID): DeletePayload!
     postMessage(grape: String!, content: String!): Message!

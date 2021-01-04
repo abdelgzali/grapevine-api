@@ -1,18 +1,20 @@
-const { ApolloServer } = require("apollo-server");
+const { ApolloServer, PubSub } = require("apollo-server");
 const mongoose = require("mongoose");
 
 const typeDefs = require("./types");
 const resolvers = require("./resolvers");
 const models = require("./models");
 
+const pubsub = new PubSub();
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: {models},
+  context: { models, pubsub },
   cors: {
-    origin: '*',
-    credentials: true
-  }
+    origin: "*",
+    credentials: true,
+  },
 });
 
 const MONGODB_URI =
